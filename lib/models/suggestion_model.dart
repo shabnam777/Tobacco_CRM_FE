@@ -36,6 +36,67 @@ class SuggestionModel {
   }
   bool get isProceed => finalVerdict == 'Proceed';
   bool get isRevoke  => finalVerdict == 'Revoke';
+SuggestionModel copyWith({
+  String? finalVerdict,
+  String? status,
+  int? groqScore,
+  int? cfScore,
+  int? llamaScore,
+  int? combinedScore,
+  String? groqAnalysis,
+  String? cfAnalysis,
+  String? llamaAnalysis,
+  String? combinedInsight,
+  String? suggestedAction,
+  bool? analysisDone,
+}) {
+  return SuggestionModel(
+    id: id,
+    companyName: companyName,
+    email: email,
+    contactPerson: contactPerson,
+    phone: phone,
+    whatsapp: whatsapp,
+    city: city,
+    website: website,
+    tradeType: tradeType,
+    annualTurnover: annualTurnover,
+    notes: notes,
+    country: country,
+    tags: tags,
+    products: products,
+    riskFlags: riskFlags,
+    source: source,
+    status: status ?? this.status,
+
+    groqScore: groqScore ?? this.groqScore,
+    cfScore: cfScore ?? this.cfScore,
+    llamaScore: llamaScore ?? this.llamaScore,
+    combinedScore: combinedScore ?? this.combinedScore,
+
+    groqAnalysis: groqAnalysis ?? this.groqAnalysis,
+    cfAnalysis: cfAnalysis ?? this.cfAnalysis,
+    llamaAnalysis: llamaAnalysis ?? this.llamaAnalysis,
+
+    groqRecommendation: groqRecommendation,
+    cfRecommendation: cfRecommendation,
+    llamaRecommendation: llamaRecommendation,
+
+    cfLegitimacy: cfLegitimacy,
+    cfOutreachPotential: cfOutreachPotential,
+
+    verdictConfidence: verdictConfidence,
+    combinedInsight: combinedInsight ?? this.combinedInsight,
+    suggestedAction: suggestedAction ?? this.suggestedAction,
+    riskLevel: riskLevel,
+
+    finalVerdict: finalVerdict ?? this.finalVerdict,
+
+    analysisDone: analysisDone ?? this.analysisDone,
+    createdAt: createdAt,
+  );
+}
+  
 
   factory SuggestionModel.fromJson(Map<String, dynamic> j) => SuggestionModel(
     id: j['id']?.toString() ?? '',

@@ -11,4 +11,5 @@ class AppStrings {
     emailFollowupAggressive, emailPricingFocused,
     emailSampleOffer, emailMOQDiscussion,
   ];
-}
+} enum AppEnv { dev, prod }
+
